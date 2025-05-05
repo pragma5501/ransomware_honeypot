@@ -1,0 +1,65 @@
+execve("./test_scene", ["./test_scene", "test_dir"], 0x7ffd9c638e68 /* 40 vars */) = 0
+brk(NULL)                               = 0x629d2b93b000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x79830081f000
+openat(AT_FDCWD, "/home/os/code/prototype/src/ld/preload.so", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=16024, ...}) = 0
+mmap(NULL, 16792, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79830081a000
+mmap(0x79830081b000, 4096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1000) = 0x79830081b000
+mmap(0x79830081c000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x79830081c000
+mmap(0x79830081d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x79830081d000
+close(3)                                = 0
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=59627, ...}) = 0
+mmap(NULL, 59627, PROT_READ, MAP_PRIVATE, 3, 0) = 0x79830080b000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+fstat(3, {st_mode=S_IFREG|0755, st_size=2125328, ...}) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2170256, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x798300400000
+mmap(0x798300428000, 1605632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x798300428000
+mmap(0x7983005b0000, 323584, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b0000) = 0x7983005b0000
+mmap(0x7983005ff000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1fe000) = 0x7983005ff000
+mmap(0x798300605000, 52624, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x798300605000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x798300808000
+arch_prctl(ARCH_SET_FS, 0x798300808740) = 0
+set_tid_address(0x798300808a10)         = 60990
+set_robust_list(0x798300808a20, 24)     = 0
+rseq(0x798300809060, 0x20, 0, 0x53053053) = 0
+mprotect(0x7983005ff000, 16384, PROT_READ) = 0
+mprotect(0x79830081d000, 4096, PROT_READ) = 0
+mprotect(0x629d2a68b000, 4096, PROT_READ) = 0
+mprotect(0x798300857000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x79830080b000, 59627)           = 0
+openat(AT_FDCWD, "test_dir", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+fstat(3, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+getrandom("\x9c\xb2\x8c\x99\xe5\x9d\xec\xd6", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x629d2b93b000
+brk(0x629d2b95c000)                     = 0x629d2b95c000
+getdents64(3, 0x629d2b93b2d0 /* 5 entries */, 32768) = 144
+newfstatat(AT_FDCWD, "test_dir/file3.data", {st_mode=S_IFREG|0644, st_size=23, ...}, 0) = 0
+rename("test_dir/file3.data", "test_dir/file3.data.tmp") = 0
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x5), ...}) = 0
+write(1, "Renamed test_dir/file3.data to t"..., 55) = 55
+newfstatat(AT_FDCWD, "test_dir/file1.txt", {st_mode=S_IFREG|0644, st_size=23, ...}, 0) = 0
+rename("test_dir/file1.txt", "test_dir/file1.txt.tmp") = 0
+write(1, "Renamed test_dir/file1.txt to te"..., 53) = 53
+newfstatat(AT_FDCWD, "test_dir/file2.log", {st_mode=S_IFREG|0644, st_size=23, ...}, 0) = 0
+rename("test_dir/file2.log", "test_dir/file2.log.tmp") = 0
+write(1, "Renamed test_dir/file2.log to te"..., 53) = 53
+getdents64(3, 0x629d2b93b2d0 /* 0 entries */, 32768) = 0
+newfstatat(AT_FDCWD, "test_dir/abcd.txt", 0x7ffef61e44b0, 0) = -1 ENOENT (No such file or directory)
+dup(2)                                  = 4
+fcntl(4, F_GETFL)                       = 0x402 (flags O_RDWR|O_APPEND)
+fstat(4, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x5), ...}) = 0
+write(4, "stat: No such file or directory\n", 32) = 32
+close(4)                                = 0
+getdents64(3, 0x629d2b93b2d0 /* 0 entries */, 32768) = 0
+close(3)                                = 0
+exit_group(0)                           = ?
++++ exited with 0 +++
